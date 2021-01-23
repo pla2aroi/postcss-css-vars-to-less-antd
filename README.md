@@ -120,7 +120,7 @@ const newThemeVariables = cssVarsToLessAntd(process, themeVariables)
 ```
 
 🥰 with nextjs next.config.js
-ref [[https://github.com/vercel/next.js/tree/canary/examples/with-ant-design](https://github.com/vercel/next.js/tree/canary/examples/with-ant-design "https://github.com/vercel/next.js/tree/canary/examples/with-ant-design")]
+ref [[https://github.com/vercel/next.js/blob/canary/examples/with-ant-design-less/next.config.js](https://github.com/vercel/next.js/blob/canary/examples/with-ant-design-less/next.config.js "https://github.com/vercel/next.js/blob/canary/examples/with-ant-design-less/next.config.js")]
 
 ```
 {
