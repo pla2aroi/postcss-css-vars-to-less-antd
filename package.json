@@ -1,10 +1,11 @@
 {
-  "name": "css-vars-to-less-antd",
+  "name": "postcss-css-vars-to-less-antd",
   "version": "1.0.0",
-  "description": "convert css variables to less antd",
+  "description": "PostCSS convert css variables to less antd",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "keywords": [
+    "postcss",
     "css",
     "less",
     "antd",
@@ -18,13 +19,13 @@
   },
   "author": "Pla2aroi <echo.pla2aroi@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/pla2aroi/css-vars-to-less-antd/blob/master/README.md",
+  "homepage": "https://github.com/pla2aroi/postcss-css-vars-to-less-antd/blob/master/README.md",
   "bugs": {
-    "url": "https://github.com/pla2aroi/css-vars-to-less-antd/issues"
+    "url": "https://github.com/pla2aroi/postcss-css-vars-to-less-antd/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com/pla2aroi/css-vars-to-less-antd.git"
+    "url": "git@github.com/pla2aroi/postcss-css-vars-to-less-antd.git"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
