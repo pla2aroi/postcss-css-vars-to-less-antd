@@ -117,8 +117,12 @@ const newThemeVariables = cssVarsToLessAntd(process, themeVariables)
   '@black': '#000000',
   '@red: #ff0018
 }
+```
 
-🥰 with next.js
+🥰 with nextjs next.config.js
+ref [[https://github.com/vercel/next.js/tree/canary/examples/with-ant-design](https://github.com/vercel/next.js/tree/canary/examples/with-ant-design "https://github.com/vercel/next.js/tree/canary/examples/with-ant-design")]
+
+```
 {
   ...
   lessLoaderOptions: {
