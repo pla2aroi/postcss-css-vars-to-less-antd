@@ -1,0 +1,9 @@
+.*
+*.map
+*.spec.*
+*.ts
+__test__/
+.vscode/
+coverage/
+tsconfig.json
+tslint.json
