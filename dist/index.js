@@ -1,76 +1,46 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.resolveValue = exports.balancedVar = void 0;
-const balanced_match_1 = __importDefault(require("balanced-match"));
-const balancedVar = (value) => {
-    const match = balanced_match_1.default('(', ')', value.trim());
-    if (!match) {
-        return {};
-    }
-    if (/(?:^|[^\w-])var$/.test(match.pre)) {
-        return {
-            pre: match.pre.slice(0, -3).trim(),
-            body: match.body.trim(),
-            post: match.post.trim(),
-        };
-    }
-    const bodyMatch = exports.balancedVar(match.body);
-    if (Object.entries(bodyMatch || {}).length) {
-        return {
-            pre: `${match.pre}(${bodyMatch.pre}`.trim(),
-            body: bodyMatch.body.trim(),
-            post: `${bodyMatch.post})${match.post}`.trim(),
-        };
-    }
-    const postMatch = exports.balancedVar(match.post);
-    if (Object.entries(postMatch || {}).length) {
-        return {
-            pre: `${match.pre}(${match.body})${postMatch.pre}`.trim(),
-            body: postMatch.body.trim(),
-            post: postMatch.post.trim(),
-        };
-    }
-    return {};
-};
-exports.balancedVar = balancedVar;
-const resolveValue = (value, variables) => {
-    const matchingVar = exports.balancedVar(`${value}`);
-    if (!Object.entries(matchingVar || {}).length) {
-        return value;
-    }
-    const bodySplit = matchingVar.body.split(',');
-    const variableName = bodySplit[0].trim();
-    const fallback = bodySplit.length > 1 ? bodySplit.slice(1).join(',').trim() : undefined;
-    let matchingVarDeclMapItem;
-    if (!!variables[variableName]) {
-        matchingVarDeclMapItem = variables[variableName];
-    }
-    const replaceValue = matchingVarDeclMapItem || exports.resolveValue(fallback, variables);
-    return `${matchingVar.pre || ''}${replaceValue || ''}${matchingVar.post || ''}`;
-};
-exports.resolveValue = resolveValue;
+exports.cssVarsToLessAntd = void 0;
+var resolve_value_1 = __importDefault(require("./lib/resolve-value"));
 function cssVarsToLessAntd(root, themeVars) {
-    let variables = {};
-    root.walkDecls((decl) => {
+    var _a, _b;
+    var variables = {};
+    root.walkDecls(function (decl) {
+        var _a;
         if (/(--(.+))/.test(decl.prop)) {
-            variables = Object.assign(Object.assign({}, variables), { [decl.prop]: decl.value });
+            variables = __assign(__assign({}, variables), (_a = {}, _a[decl.prop] = decl.value, _a));
         }
     });
     if (!Object.entries(variables).length) {
         return {};
     }
-    let rootVars = {};
-    for (const [key, value] of Object.entries(variables)) {
-        rootVars = Object.assign(Object.assign({}, rootVars), { [key]: exports.resolveValue(value, variables) });
+    var rootVars = {};
+    for (var _i = 0, _c = Object.entries(variables); _i < _c.length; _i++) {
+        var _d = _c[_i], key = _d[0], value = _d[1];
+        rootVars = __assign(__assign({}, rootVars), (_a = {}, _a[key] = resolve_value_1.default(value, variables), _a));
     }
-    let newThemeVars = {};
-    for (const [key, value] of Object.entries(themeVars)) {
-        newThemeVars = Object.assign(Object.assign({}, newThemeVars), { [key]: exports.resolveValue(value, rootVars) });
+    var newThemeVars = {};
+    for (var _e = 0, _f = Object.entries(themeVars); _e < _f.length; _e++) {
+        var _g = _f[_e], key = _g[0], value = _g[1];
+        newThemeVars = __assign(__assign({}, newThemeVars), (_b = {}, _b[key] = resolve_value_1.default(value, rootVars), _b));
     }
     return newThemeVars;
 }
+exports.cssVarsToLessAntd = cssVarsToLessAntd;
+module.exports = cssVarsToLessAntd;
 exports.default = cssVarsToLessAntd;
 //# sourceMappingURL=index.js.map
