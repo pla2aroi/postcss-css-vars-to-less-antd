@@ -2,8 +2,8 @@
   "name": "postcss-css-vars-to-less-antd",
   "version": "0.0.2",
   "description": "PostCSS convert css variables to less antd",
-  "main": "dist/src/index.js",
-  "types": "dist/src/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "keywords": [
     "postcss",
     "css",
