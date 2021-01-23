@@ -103,7 +103,7 @@ const themeVariables = lessToJS(
 
 ```
 const process = parse(fs.readFileSync("./globals.css", "utf8"));
-const newThemeVariables = cssVarsToLessAntd.default(process, themeVariables)
+const newThemeVariables = cssVarsToLessAntd(process, themeVariables)
 ```
 
 🚀 output newThemeVariables
