@@ -27,6 +27,7 @@ describe('function cssVarsToLessAntd', function () {
     });
     test('variables empty convert css vars to less object', function () {
         expect(index_1.default(postcss_1.parse(''), mockThemeVariables)).toMatchObject({});
+        expect(index_1.default(process, {})).toMatchObject({});
     });
 });
 //# sourceMappingURL=index.test.js.map

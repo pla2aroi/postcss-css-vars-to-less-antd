@@ -3,7 +3,6 @@ import type { IResolveValue } from '@type/common'
 
 const resolveValue = (value: string, variables: IResolveValue): string => {
   const matchingVar = balancedVar(`${value}`)
-
   if (!Object.entries(matchingVar || {}).length) {
     return value
   }

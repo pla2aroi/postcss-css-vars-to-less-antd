@@ -14,33 +14,30 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.cssVarsToLessAntd = void 0;
 var resolve_value_1 = __importDefault(require("./lib/resolve-value"));
+var eachResolveVariables = function (rootVars, themeVars) {
+    var _a;
+    var newThemeVars = {};
+    for (var _i = 0, _b = Object.entries(themeVars); _i < _b.length; _i++) {
+        var _c = _b[_i], key = _c[0], value = _c[1];
+        newThemeVars = __assign(__assign({}, newThemeVars), (_a = {}, _a[key] = resolve_value_1.default(value, rootVars), _a));
+    }
+    return newThemeVars;
+};
 function cssVarsToLessAntd(root, themeVars) {
-    var _a, _b;
     var variables = {};
+    if (!root || typeof root !== 'object' || root.nodes.length === 0) {
+        return variables;
+    }
     root.walkDecls(function (decl) {
         var _a;
         if (/(--(.+))/.test(decl.prop)) {
             variables = __assign(__assign({}, variables), (_a = {}, _a[decl.prop] = decl.value, _a));
         }
     });
-    if (!Object.entries(variables).length) {
-        return {};
-    }
-    var rootVars = {};
-    for (var _i = 0, _c = Object.entries(variables); _i < _c.length; _i++) {
-        var _d = _c[_i], key = _d[0], value = _d[1];
-        rootVars = __assign(__assign({}, rootVars), (_a = {}, _a[key] = resolve_value_1.default(value, variables), _a));
-    }
-    var newThemeVars = {};
-    for (var _e = 0, _f = Object.entries(themeVars); _e < _f.length; _e++) {
-        var _g = _f[_e], key = _g[0], value = _g[1];
-        newThemeVars = __assign(__assign({}, newThemeVars), (_b = {}, _b[key] = resolve_value_1.default(value, rootVars), _b));
-    }
-    return newThemeVars;
+    var rootVars = eachResolveVariables(variables, variables);
+    return eachResolveVariables(rootVars, themeVars);
 }
-exports.cssVarsToLessAntd = cssVarsToLessAntd;
 module.exports = cssVarsToLessAntd;
 exports.default = cssVarsToLessAntd;
 //# sourceMappingURL=index.js.map

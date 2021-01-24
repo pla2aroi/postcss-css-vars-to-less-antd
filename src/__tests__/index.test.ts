@@ -49,5 +49,6 @@ describe('function cssVarsToLessAntd', () => {
 
   test('variables empty convert css vars to less object', () => {
     expect(cssVarsToLessAntd(parse(''), mockThemeVariables)).toMatchObject({})
+    expect(cssVarsToLessAntd(process, {})).toMatchObject({})
   })
 })

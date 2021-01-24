@@ -6,7 +6,7 @@
 
 [![NPM version](http://img.shields.io/npm/v/postcss-css-vars-to-less-antd.svg?style=flat)](https://www.npmjs.org/package/postcss-css-vars-to-less-antd)
 [![npm license](http://img.shields.io/npm/l/postcss-css-vars-to-less-antd.svg?style=flat-square)](https://www.npmjs.org/package/postcss-css-vars-to-less-antd)
-[![codecov](https://codecov.io/gh/Pla2aroi/postcss-css-vars-to-less-antd/branch/main/graph/badge.svg)](https://codecov.io/gh/pla2aroi/postcss-css-vars-to-less-antd)
+[![codecov](https://codecov.io/gh/Pla2aroi/postcss-css-vars-to-less-antd/branch/main/graph/badge.svg?token=8AX6UQVWI8)](https://codecov.io/gh/Pla2aroi/postcss-css-vars-to-less-antd)
 
 [![npm](https://nodei.co/npm/postcss-css-vars-to-less-antd.svg?downloads=true)](https://nodei.co/npm/postcss-css-vars-to-less-antd/)
 
@@ -52,7 +52,6 @@ html.dark {
 a.link {
   color: var(--color-text-black);
 }
-
 ```
 
 ##### file antd-custom.less
@@ -60,6 +59,7 @@ a.link {
 ```
 @primary-color: var(--primary, @primary-color);
 @info-color: var(--primary);
+@info-text: @info-color;
 @error-color: var(--color-text-red-n1, var(--color-text-red-n2, var(--red)));
 @white: var(--white);
 @black: var(--black);
@@ -93,10 +93,11 @@ const themeVariables = lessToJS(
 {
   '@primary-color': 'var(--primary, @primary-color)',
   '@info-color': 'var(--primary)',
+  '@info-text': '@info-color',
   '@error-color': 'var(--color-text-red-n1, var(--color-text-red-n2, var(--red)))',
   '@white': 'var(--white)',
-  '@black': 'var(--black)'
-  '@red: #ff0018
+  '@black': 'var(--black)',
+  '@red': '#ff0018'
 }
 
 ```
@@ -112,6 +113,7 @@ const newThemeVariables = cssVarsToLessAntd(process, themeVariables)
 {
   '@primary-color': '#00ff73',
   '@info-color': '#00ff73',
+  '@info-text': '@info-color',
   '@error-color': '#ff0018',
   '@white': '#ffffff',
   '@black': '#000000',
