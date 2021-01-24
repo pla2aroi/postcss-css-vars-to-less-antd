@@ -25,7 +25,7 @@ yarn postcss-css-vars-to-less-antd
 
 ### example
 
-##### file globals.css
+##### 💅 file globals.css
 
 ```
 :root {
@@ -54,7 +54,7 @@ a.link {
 }
 ```
 
-##### file antd-custom.less
+##### 💅 file antd-custom.less
 
 ```
 @primary-color: var(--primary, @primary-color);
@@ -66,7 +66,7 @@ a.link {
 @red: #ff0018;
 ```
 
-##### custom
+##### 🛠 custom
 
 ```
 const fs = require("fs")
@@ -117,7 +117,7 @@ const newThemeVariables = cssVarsToLessAntd(process, themeVariables)
   '@error-color': '#ff0018',
   '@white': '#ffffff',
   '@black': '#000000',
-  '@red: #ff0018
+  '@red': '#ff0018'
 }
 ```
 
