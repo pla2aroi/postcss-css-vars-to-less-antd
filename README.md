@@ -112,6 +112,7 @@ const themeVariables = lessToJS(
 ```
 const process = parse(fs.readFileSync("./globals.css", "utf8"));
 const newThemeVariables = cssVarsToLessAntd(process, themeVariables)
+console.log(newThemeVariables)
 ```
 
 #### case read typescript file and styled-components
@@ -180,6 +181,7 @@ const themeVariables = lessToJS(
 )
 const rootStyling = requireTypescript('./globals.ts')
 const newThemeVariables = cssVarsToLessAntd(parse(rootStyling[0]), themeVariables)
+console.log(newThemeVariables)
 ```
 
 🚀 output newThemeVariables
