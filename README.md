@@ -18,9 +18,9 @@ For conversion css variables to less
 ## Installation
 
 ```
-npm install postcss-css-vars-to-less-antd
+npm install postcss-css-vars-to-less-antd --save
 or
-yarn postcss-css-vars-to-less-antd
+yarn add postcss-css-vars-to-less-antd
 ```
 
 ### example
@@ -66,20 +66,26 @@ a.link {
 @red: #ff0018;
 ```
 
-##### 🛠 custom
+##### 👨‍💻 custom
 
 ```
+😅 note => you may need to install more.
+----------
+npm install less-vars-to-js --save
+npm install postcss --save
+----------
+
 const fs = require("fs")
+const { parse } = require("postcss")
 const lessToJS = require('less-vars-to-js')
 const cssVarsToLessAntd = require('postcss-css-vars-to-less-antd')
-const { parse } = require("postcss")
 
 or
 
 import fs from 'fs'
+import { parse } from 'postcss'
 import lessToJS from 'less-vars-to-js'
 import cssVarsToLessAntd from 'postcss-css-vars-to-less-antd'
-import { parse } from 'postcss'
 
 const themeVariables = lessToJS(
   fs.readFileSync(path.resolve(__dirname, './antd-custom.less'), 'utf8'),

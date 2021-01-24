@@ -14,11 +14,11 @@ const eachResolveVariables = (rootVars: IResolveValue, themeVars: IResolveValue)
 }
 
 function cssVarsToLessAntd(root: Root, themeVars: IResolveValue): IResolveValue {
-  let variables = {} as IResolveValue
-  if (!root || typeof root !== 'object' || root.nodes.length === 0) {
-    return variables
+  if (!root || typeof root !== 'object' || !root.nodes || root.nodes.length === 0) {
+    return themeVars
   }
 
+  let variables = {} as IResolveValue
   root.walkDecls((decl) => {
     if (/(--(.+))/.test(decl.prop)) {
       variables = {

@@ -25,10 +25,10 @@ var eachResolveVariables = function (rootVars, themeVars) {
     return newThemeVars;
 };
 function cssVarsToLessAntd(root, themeVars) {
-    var variables = {};
-    if (!root || typeof root !== 'object' || root.nodes.length === 0) {
-        return variables;
+    if (!root || typeof root !== 'object' || !root.nodes || root.nodes.length === 0) {
+        return themeVars;
     }
+    var variables = {};
     root.walkDecls(function (decl) {
         var _a;
         if (/(--(.+))/.test(decl.prop)) {

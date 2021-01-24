@@ -1,3 +1,7 @@
+## 1.1.1
+- Update README.md
+- Case root postcss empty give return variable default original value
+- Update test case
 ## 1.1.0
 - Update README.md
 - Refactor code

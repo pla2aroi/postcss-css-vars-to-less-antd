@@ -26,7 +26,14 @@ describe('function cssVarsToLessAntd', function () {
         });
     });
     test('variables empty convert css vars to less object', function () {
-        expect(index_1.default(postcss_1.parse(''), mockThemeVariables)).toMatchObject({});
+        expect(index_1.default(postcss_1.parse(''), mockThemeVariables)).toMatchObject({
+            '@primary-color': 'var(--primary, @primary)',
+            '@info-color': '@primary-color',
+            '@success-color': 'var(--primary-n-1, var(--primary-n-2, var(--primary-n-3, #00ff73)))',
+            '@error-color': 'var(--bg-red-n-1, var(--bg-red-n-2, var(--bg-red-n-3, @red-color)))',
+            '@white': 'var(--white)',
+            '@black': 'var(--black)',
+        });
         expect(index_1.default(process, {})).toMatchObject({});
     });
 });
