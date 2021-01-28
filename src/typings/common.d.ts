@@ -1,4 +1,4 @@
-declare module '@type/common' {
+declare module 'typings/common' {
   export type IResolveValue = {
     [key: string]: string
   }

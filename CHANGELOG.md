@@ -1,3 +1,6 @@
+## 1.1.3
+- Remove dependencie
+- Change folder typings
 ## 1.1.2
 - Update README.md
 ## 1.1.1

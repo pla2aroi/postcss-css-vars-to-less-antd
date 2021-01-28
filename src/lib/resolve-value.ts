@@ -1,5 +1,5 @@
 import balancedVar from './balanced-var'
-import type { IResolveValue } from '@type/common'
+import type { IResolveValue } from 'typings/common'
 
 const resolveValue = (value: string, variables: IResolveValue): string => {
   const matchingVar = balancedVar(`${value}`)

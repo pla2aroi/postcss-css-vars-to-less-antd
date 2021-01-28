@@ -1,6 +1,6 @@
 import resolveValue from './lib/resolve-value'
-import type { IResolveValue } from '@type/common'
 import type { Root } from 'postcss'
+import type { IResolveValue } from 'typings/common'
 
 const eachResolveVariables = (rootVars: IResolveValue, themeVars: IResolveValue) => {
   let newThemeVars = {} as IResolveValue

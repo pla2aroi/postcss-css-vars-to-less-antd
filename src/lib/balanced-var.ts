@@ -1,5 +1,5 @@
 import balanced from 'balanced-match'
-import type { IBalancedVar } from '@type/common'
+import { IBalancedVar } from 'typings/common'
 
 const balancedVar = (value: string): IBalancedVar => {
   const match = balanced('(', ')', value.trim())
