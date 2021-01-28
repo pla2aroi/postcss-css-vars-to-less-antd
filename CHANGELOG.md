@@ -1,3 +1,5 @@
+## 1.1.4
+- Fix unit test
 ## 1.1.3
 - Remove dependencie
 - Change folder typings
